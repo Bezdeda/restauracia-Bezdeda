@@ -1,3 +1,7 @@
+<?php 
+$nazovStranky = "Domov | Sushi House Šurany";
+require 'partials/header.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
