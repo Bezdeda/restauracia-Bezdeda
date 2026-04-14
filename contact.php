@@ -1,5 +1,28 @@
 <?php
 $nazovStranky = "Kontakt | Sushi House Šurany";
+
+$meno = '';
+$email = '';
+$predmet = '';
+$sprava = '';
+$potvrdzujucaSprava = '';
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $meno = trim($_POST['meno'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $predmet = trim($_POST['predmet'] ?? '');
+    $sprava = trim($_POST['sprava'] ?? '');
+
+    if ($meno === '' || $email === '' || $predmet === '' || $sprava === '') {
+        $error = "Prosím vyplňte všetky polia formulára.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = "Zadajte platný email.";
+    } else {
+        $potvrdzujucaSprava = "Vaša správa bola úspešne odoslaná.";
+    }
+}
+
 require 'partials/header.php';
 ?>
 
@@ -54,32 +77,84 @@ require 'partials/header.php';
 
             <div class="col-md-6">
                 <div class="wow fadeInUp" data-wow-delay="0.2s">
+
+                    <?php if ($error !== ''): ?>
+                        <div class="alert alert-danger">
+                            <?php echo htmlspecialchars($error); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ($potvrdzujucaSprava !== ''): ?>
+                        <div class="alert alert-success">
+                            <?php echo htmlspecialchars($potvrdzujucaSprava); ?>
+                        </div>
+
+                        <div class="bg-white rounded p-3 mb-4">
+                            <h5 class="mb-3">Odoslané údaje</h5>
+                            <p><strong>Meno:</strong> <?php echo htmlspecialchars($meno); ?></p>
+                            <p><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
+                            <p><strong>Predmet:</strong> <?php echo htmlspecialchars($predmet); ?></p>
+                            <p><strong>Správa:</strong> <?php echo htmlspecialchars($sprava); ?></p>
+                        </div>
+                    <?php endif; ?>
+
                     <form method="POST" action="">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="meno" placeholder="Vaše meno">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="meno"
+                                        name="meno"
+                                        placeholder="Vaše meno"
+                                        value="<?php echo htmlspecialchars($meno); ?>"
+                                        required
+                                    >
                                     <label for="meno">Vaše meno</label>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Váš email">
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        id="email"
+                                        name="email"
+                                        placeholder="Váš email"
+                                        value="<?php echo htmlspecialchars($email); ?>"
+                                        required
+                                    >
                                     <label for="email">Váš email</label>
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="predmet" placeholder="Predmet">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="predmet"
+                                        name="predmet"
+                                        placeholder="Predmet"
+                                        value="<?php echo htmlspecialchars($predmet); ?>"
+                                        required
+                                    >
                                     <label for="predmet">Predmet</label>
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Sem napíšte správu" id="sprava" style="height: 150px"></textarea>
+                                    <textarea
+                                        class="form-control"
+                                        placeholder="Sem napíšte správu"
+                                        id="sprava"
+                                        name="sprava"
+                                        style="height: 150px"
+                                        required
+                                    ><?php echo htmlspecialchars($sprava); ?></textarea>
                                     <label for="sprava">Správa</label>
                                 </div>
                             </div>
