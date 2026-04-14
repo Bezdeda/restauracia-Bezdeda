@@ -28,7 +28,7 @@ require 'partials/header.php';
                     <div class="p-4">
                         <i class="fa fa-3x fa-fish text-primary mb-4"></i>
                         <h5>Čerstvé sushi</h5>
-                        <p>Každý deň pripravujeme sushi z kvalitných a čerstvých surovín.</p>
+                        <p>Každý deň pripravujeme sushi z kvalitných a čerstvých surovín pre maximálny chuťový zážitok.</p>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@ require 'partials/header.php';
                     <div class="p-4">
                         <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
                         <h5>Teplé jedlá</h5>
-                        <p>V ponuke nájdete aj ryžové misky, rezance a ďalšie ázijské špeciality.</p>
+                        <p>Okrem sushi ponúkame aj ryžové misky, rezance a ďalšie obľúbené ázijské špeciality.</p>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@ require 'partials/header.php';
                     <div class="p-4">
                         <i class="fa fa-3x fa-calendar-alt text-primary mb-4"></i>
                         <h5>Online rezervácia</h5>
-                        <p>Jednoducho si rezervujte stôl online cez náš formulár.</p>
+                        <p>Stôl si môžete jednoducho rezervovať online cez formulár priamo na našej webovej stránke.</p>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@ require 'partials/header.php';
                     <div class="p-4">
                         <i class="fa fa-3x fa-smile text-primary mb-4"></i>
                         <h5>Príjemná obsluha</h5>
-                        <p>Dbáme na pohodlnú atmosféru a profesionálny prístup ku každému hosťovi.</p>
+                        <p>Dbáme na profesionálny prístup, pohodlnú atmosféru a spokojnosť každého zákazníka.</p>
                     </div>
                 </div>
             </div>
@@ -67,8 +67,8 @@ require 'partials/header.php';
                 <div class="service-item rounded pt-3">
                     <div class="p-4">
                         <i class="fa fa-3x fa-shopping-bag text-primary mb-4"></i>
-                        <h5>Objednávky so sebou</h5>
-                        <p>Jedlá si môžete objednať aj so sebou a vychutnať doma.</p>
+                        <h5>Jedlo so sebou</h5>
+                        <p>Vybrané jedlá si môžete objednať aj so sebou a vychutnať si ich doma alebo v práci.</p>
                     </div>
                 </div>
             </div>
@@ -77,8 +77,8 @@ require 'partials/header.php';
                 <div class="service-item rounded pt-3">
                     <div class="p-4">
                         <i class="fa fa-3x fa-users text-primary mb-4"></i>
-                        <h5>Rodinné večere</h5>
-                        <p>Príjemné prostredie je vhodné aj pre rodinné oslavy a stretnutia.</p>
+                        <h5>Rodinné a skupinové posedenia</h5>
+                        <p>Naša reštaurácia je vhodná aj na rodinné stretnutia, oslavy a príjemné večere vo dvojici.</p>
                     </div>
                 </div>
             </div>
@@ -87,8 +87,8 @@ require 'partials/header.php';
                 <div class="service-item rounded pt-3">
                     <div class="p-4">
                         <i class="fa fa-3x fa-clock text-primary mb-4"></i>
-                        <h5>Rýchle vybavenie</h5>
-                        <p>Na objednávkach si dávame záležať, aby boli pripravené čo najrýchlejšie.</p>
+                        <h5>Rýchle vybavenie objednávok</h5>
+                        <p>Na príprave objednávok si dávame záležať tak, aby boli chutné, čerstvé a pripravené načas.</p>
                     </div>
                 </div>
             </div>
@@ -97,8 +97,8 @@ require 'partials/header.php';
                 <div class="service-item rounded pt-3">
                     <div class="p-4">
                         <i class="fa fa-3x fa-star text-primary mb-4"></i>
-                        <h5>Kvalitný zážitok</h5>
-                        <p>Naším cieľom je, aby sa hostia radi vracali za chuťou aj atmosférou.</p>
+                        <h5>Kvalitný gastronomický zážitok</h5>
+                        <p>Naším cieľom je, aby sa hostia radi vracali nielen kvôli jedlu, ale aj kvôli atmosfére.</p>
                     </div>
                 </div>
             </div>
