@@ -198,36 +198,43 @@ body {
 /*** Hero Header ***/
 .hero-header {
     background:
-        linear-gradient(rgba(11, 15, 26, .82), rgba(11, 15, 26, .9)),
-        url(../img/bg-hero.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
+        linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.6)),
+        url("../img/sushi.jpg");
     background-size: cover;
+    background-position: center;
 }
 
-.hero-header h1 {
-    font-weight: 800;
+/* WRAPPER – zruší biele pozadie */
+.hero-img-wrapper {
+    background: transparent !important;
+    padding: 0 !important;
 }
 
-.hero-header p {
-    color: rgba(255, 255, 255, .88) !important;
+/* OBRÁZOK */
+.hero-img {
+    width: 300px;
+    border-radius: 50%;
+    animation: spin 20s linear infinite;
+    display: block;
+    margin-left: auto;
 }
 
+/* ANIMÁCIA */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ZRUŠENIE BOOTSTRAP BLBOSTÍ */
 .hero-header img {
-    animation: imgRotate 50s linear infinite;
-    filter: drop-shadow(0 20px 35px rgba(0, 0, 0, .35));
+    animation: none !important;
+    filter: none !important;
 }
 
-@keyframes imgRotate { 
-    100% { 
-        transform: rotate(360deg); 
-    } 
+.hero-header .position-relative {
+    background: none !important;
+    padding: 0 !important;
 }
-
-.breadcrumb-item + .breadcrumb-item::before {
-    color: rgba(255, 255, 255, .5);
-}
-
 
 /*** Section Title ***/
 .section-title {

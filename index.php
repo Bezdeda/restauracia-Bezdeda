@@ -15,7 +15,7 @@ require 'partials/header.php';
                 <a href="booking.php" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Rezervovať stôl</a>
             </div>
             <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                <img class="img-fluid" src="img/hero.png" alt="Sushi House Šurany">
+                <img class="img-fluid" src="img/hero.jpg" alt="Sushi House Šurany">
             </div>
         </div>
     </div>
