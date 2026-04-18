@@ -9,6 +9,22 @@ $items = $menuItem->getAll();
 require 'partials/header.php';
 ?>
 
+<?php
+require_once 'classes/MenuItem.php';
+
+$menuItem = new MenuItem();
+
+// DELETE logika
+if (isset($_GET['delete_id'])) {
+    $menuItem->delete((int)$_GET['delete_id']);
+    header("Location: menu.php");
+    exit;
+}
+
+$items = $menuItem->getAll();
+
+require 'partials/header.php';
+?>
 <div class="container-xxl py-5 bg-dark hero-header mb-5">
     <div class="container text-center my-5 pt-5 pb-4">
         <h1 class="display-3 text-white mb-3 animated slideInDown">Menu</h1>
