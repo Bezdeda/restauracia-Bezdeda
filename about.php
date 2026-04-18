@@ -1,6 +1,6 @@
-<?php 
+<?php
 $nazovStranky = "O nás | Sushi House Šurany";
-require 'partials/header.php'; 
+require 'partials/header.php';
 ?>
 
 <div class="container-xxl py-5 bg-dark hero-header mb-5">
@@ -38,13 +38,18 @@ require 'partials/header.php';
             <div class="col-lg-6">
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">O nás</h5>
                 <h1 class="mb-4">Vitajte v <i class="fa fa-fish text-primary me-2"></i>Sushi House Šurany</h1>
+
                 <p class="mb-4">
-                    Sushi House Šurany je moderná reštaurácia zameraná na čerstvé sushi, kvalitné suroviny
-                    a príjemnú atmosféru. Našim cieľom je priniesť do Šurian chuť modernej japonskej kuchyne.
+                    Sushi House Šurany je moderná reštaurácia zameraná na čerstvé sushi,
+                    kvalitné ingrediencie a poctivú prípravu každého jedla.
+                    Naším cieľom je priniesť do Šurian chuť modernej japonskej kuchyne
+                    v príjemnom a štýlovom prostredí.
                 </p>
+
                 <p class="mb-4">
-                    V našej ponuke nájdete sushi sety, maki, nigiri aj teplé jedlá. Dávame dôraz na čerstvosť,
-                    precíznu prípravu a spokojnosť každého zákazníka.
+                    V našej ponuke nájdete sushi sety, maki, nigiri aj obľúbené teplé jedlá.
+                    Dávame dôraz na čerstvosť, precízne spracovanie a spokojnosť každého zákazníka.
+                    Chceme, aby si u nás každý vychutnal nielen jedlo, ale aj celkový gastronomický zážitok.
                 </p>
 
                 <div class="row g-4 mb-4">
@@ -57,6 +62,7 @@ require 'partials/header.php';
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-6">
                         <div class="d-flex align-items-center border-start border-5 border-primary px-3">
                             <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">20</h1>

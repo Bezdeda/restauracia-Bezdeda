@@ -19,7 +19,7 @@ require 'partials/header.php';
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h5 class="section-title ff-secondary text-center text-primary fw-normal">Naše menu</h5>
-            <h1 class="mb-5">Obľúbené sushi a špeciality</h1>
+            <h1 class="mb-5">Sushi, maki a ázijské špeciality</h1>
         </div>
 
         <div class="row g-4">
@@ -31,7 +31,7 @@ require 'partials/header.php';
                             <span>California Roll</span>
                             <span class="text-primary">8,90 €</span>
                         </h5>
-                        <small class="fst-italic">Krabia tyčinka, avokádo, uhorka, sezam</small>
+                        <small class="fst-italic">Krabia tyčinka, avokádo, uhorka a sezam</small>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@ require 'partials/header.php';
                             <span>Salmon Nigiri</span>
                             <span class="text-primary">6,50 €</span>
                         </h5>
-                        <small class="fst-italic">Ryža, čerstvý losos, wasabi</small>
+                        <small class="fst-italic">Ryža, čerstvý losos a jemné wasabi</small>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ require 'partials/header.php';
                             <span>Tempura Maki</span>
                             <span class="text-primary">9,90 €</span>
                         </h5>
-                        <small class="fst-italic">Kreveta v tempure, omáčka, sezam</small>
+                        <small class="fst-italic">Kreveta v tempure, omáčka a sezam</small>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@ require 'partials/header.php';
                             <span>Avocado Maki</span>
                             <span class="text-primary">5,90 €</span>
                         </h5>
-                        <small class="fst-italic">Ryža, avokádo, nori riasa</small>
+                        <small class="fst-italic">Ryža, avokádo a nori riasa</small>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@ require 'partials/header.php';
                             <span>Tuna Roll</span>
                             <span class="text-primary">8,50 €</span>
                         </h5>
-                        <small class="fst-italic">Tuniak, ryža, uhorka, sezam</small>
+                        <small class="fst-italic">Tuniak, ryža, uhorka a sezam</small>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@ require 'partials/header.php';
                             <span>Teriyaki Bowl</span>
                             <span class="text-primary">10,90 €</span>
                         </h5>
-                        <small class="fst-italic">Ryža, kura v teriyaki omáčke, zelenina</small>
+                        <small class="fst-italic">Ryža, kura v teriyaki omáčke a zelenina</small>
                     </div>
                 </div>
             </div>
@@ -122,7 +122,7 @@ require 'partials/header.php';
                             <span>Dragon Roll</span>
                             <span class="text-primary">11,90 €</span>
                         </h5>
-                        <small class="fst-italic">Kreveta, avokádo, omáčka, sezam</small>
+                        <small class="fst-italic">Kreveta, avokádo, jemná omáčka a sezam</small>
                     </div>
                 </div>
             </div>

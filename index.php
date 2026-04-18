@@ -9,13 +9,13 @@ require 'partials/header.php';
             <div class="col-lg-6 text-center text-lg-start">
                 <h1 class="display-3 text-white animated slideInLeft">Vychutnajte si<br>čerstvé sushi</h1>
                 <p class="text-white animated slideInLeft mb-4 pb-2">
-                    Sushi House Šurany prináša modernú japonskú kuchyňu, čerstvé suroviny
-                    a príjemnú atmosféru priamo v srdci mesta.
+                    Objavte chuť čerstvého sushi, kvalitných surovín a modernej japonskej kuchyne
+                    v príjemnom prostredí priamo v centre Šurian.
                 </p>
                 <a href="booking.php" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Rezervovať stôl</a>
             </div>
             <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                <img class="img-fluid" src="img/hero.png" alt="Sushi House Šurany">
+                <img class="img-fluid" src="img/hero.jpg" alt="Sushi House Šurany">
             </div>
         </div>
     </div>
@@ -38,8 +38,8 @@ require 'partials/header.php';
                 <div class="service-item rounded pt-3">
                     <div class="p-4">
                         <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
-                        <h5>Široké menu</h5>
-                        <p>V ponuke nájdete sushi sety, maki, nigiri aj obľúbené teplé jedlá.</p>
+                        <h5>Sushi na objednávku</h5>
+                        <p>Každé jedlo pripravujeme s dôrazom na čerstvosť, kvalitu a precízne spracovanie.</p>
                     </div>
                 </div>
             </div>
@@ -57,9 +57,9 @@ require 'partials/header.php';
             <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                 <div class="service-item rounded pt-3">
                     <div class="p-4">
-                        <i class="fa fa-3x fa-smile text-primary mb-4"></i>
-                        <h5>Príjemná atmosféra</h5>
-                        <p>Moderné prostredie a profesionálny prístup pre pohodlný zážitok z návštevy.</p>
+                        <i class="fa fa-3x fa-shopping-bag text-primary mb-4"></i>
+                        <h5>Jedlo so sebou</h5>
+                        <p>Vybrané jedlá si môžete objednať aj so sebou a vychutnať kdekoľvek.</p>
                     </div>
                 </div>
             </div>
@@ -91,12 +91,12 @@ require 'partials/header.php';
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">O nás</h5>
                 <h1 class="mb-4">Vitajte v <i class="fa fa-fish text-primary me-2"></i>Sushi House Šurany</h1>
                 <p class="mb-4">
-                    Naša reštaurácia sa zameriava na modernú japonskú kuchyňu,
-                    kvalitné suroviny a poctivú prípravu každého jedla.
+                    Sushi House Šurany je moderná reštaurácia zameraná na čerstvé sushi,
+                    kvalitné ingrediencie a poctivú prípravu každého jedla.
                 </p>
                 <p class="mb-4">
-                    Chceme, aby si každý zákazník vychutnal nielen výborné jedlo,
-                    ale aj príjemný zážitok z návštevy.
+                    Naším cieľom je priniesť zákazníkom nielen výborné jedlo,
+                    ale aj príjemný gastronomický zážitok v modernom a pohodlnom prostredí.
                 </p>
 
                 <div class="row g-4 mb-4">
@@ -137,7 +137,7 @@ require 'partials/header.php';
         <div class="row g-4">
             <div class="col-lg-6">
                 <div class="d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt="California roll" style="width: 80px;">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt="California Roll" style="width: 80px;">
                     <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between border-bottom pb-2">
                             <span>California Roll</span>
@@ -150,7 +150,7 @@ require 'partials/header.php';
 
             <div class="col-lg-6">
                 <div class="d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-2.jpg" alt="Salmon nigiri" style="width: 80px;">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-2.jpg" alt="Salmon Nigiri" style="width: 80px;">
                     <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between border-bottom pb-2">
                             <span>Salmon Nigiri</span>
@@ -163,7 +163,7 @@ require 'partials/header.php';
 
             <div class="col-lg-6">
                 <div class="d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-3.jpg" alt="Tempura maki" style="width: 80px;">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-3.jpg" alt="Tempura Maki" style="width: 80px;">
                     <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between border-bottom pb-2">
                             <span>Tempura Maki</span>
@@ -176,7 +176,7 @@ require 'partials/header.php';
 
             <div class="col-lg-6">
                 <div class="d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-4.jpg" alt="Sushi set" style="width: 80px;">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-4.jpg" alt="Sushi Set" style="width: 80px;">
                     <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between border-bottom pb-2">
                             <span>Sushi Set</span>

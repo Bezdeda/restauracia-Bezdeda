@@ -19,7 +19,7 @@ require 'partials/header.php';
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h5 class="section-title ff-secondary text-center text-primary fw-normal">Členovia tímu</h5>
-            <h1 class="mb-5">Ľudia za Sushi House Šurany</h1>
+            <h1 class="mb-5">Ľudia, ktorí stoja za Sushi House Šurany</h1>
         </div>
 
         <div class="row g-4">
@@ -29,7 +29,7 @@ require 'partials/header.php';
                         <img class="img-fluid" src="img/team-1.jpg" alt="Majiteľ reštaurácie">
                     </div>
                     <h5 class="mb-0">Martin Kováč</h5>
-                    <small>Majiteľ</small>
+                    <small>Majiteľ reštaurácie</small>
                 </div>
             </div>
 
@@ -59,9 +59,17 @@ require 'partials/header.php';
                         <img class="img-fluid" src="img/team-4.jpg" alt="Obsluha">
                     </div>
                     <h5 class="mb-0">Peter Nagy</h5>
-                    <small>Obsluha</small>
+                    <small>Obsluha a zákaznícky servis</small>
                 </div>
             </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <p class="mb-0">
+                Náš tím spája skúsenosti, precíznosť a láska k modernej japonskej kuchyni.
+                Každý deň pracujeme na tom, aby ste si z návštevy Sushi House Šurany odniesli
+                výnimočný gastronomický zážitok.
+            </p>
         </div>
     </div>
 </div>

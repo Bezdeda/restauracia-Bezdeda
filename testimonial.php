@@ -19,13 +19,17 @@ require 'partials/header.php';
     <div class="container">
         <div class="text-center">
             <h5 class="section-title ff-secondary text-center text-primary fw-normal">Referencie</h5>
-            <h1 class="mb-5">Čo o nás hovoria zákazníci</h1>
+            <h1 class="mb-5">Čo o nás hovoria naši zákazníci</h1>
         </div>
 
         <div class="owl-carousel testimonial-carousel">
+
             <div class="testimonial-item bg-transparent border rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Veľmi príjemné prostredie, rýchla obsluha a sushi bolo naozaj čerstvé. Určite sa sem ešte vrátime.</p>
+                <p>
+                    Veľmi príjemné prostredie, rýchla obsluha a sushi bolo naozaj čerstvé.
+                    Určite sa sem ešte vrátime.
+                </p>
                 <div class="d-flex align-items-center">
                     <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;" alt="Zákazník 1">
                     <div class="ps-3">
@@ -37,7 +41,9 @@ require 'partials/header.php';
 
             <div class="testimonial-item bg-transparent border rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Najlepšie sushi v okolí. Oceňujem kvalitu surovín aj pekné servírovanie jedla.</p>
+                <p>
+                    Najlepšie sushi v okolí. Oceňujem kvalitu surovín, čerstvosť a krásne servírovanie jedla.
+                </p>
                 <div class="d-flex align-items-center">
                     <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;" alt="Zákazník 2">
                     <div class="ps-3">
@@ -49,7 +55,10 @@ require 'partials/header.php';
 
             <div class="testimonial-item bg-transparent border rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Rezervácia prebehla bez problémov a personál bol veľmi ochotný. Skvelý zážitok z večere.</p>
+                <p>
+                    Rezervácia prebehla bez problémov a personál bol veľmi ochotný.
+                    Skvelý zážitok z večere.
+                </p>
                 <div class="d-flex align-items-center">
                     <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;" alt="Zákazník 3">
                     <div class="ps-3">
@@ -61,7 +70,10 @@ require 'partials/header.php';
 
             <div class="testimonial-item bg-transparent border rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Moderná reštaurácia, chutné jedlá a veľmi dobrá atmosféra. Odporúčam každému milovníkovi sushi.</p>
+                <p>
+                    Moderná reštaurácia, chutné jedlá a veľmi dobrá atmosféra.
+                    Odporúčam každému milovníkovi sushi.
+                </p>
                 <div class="d-flex align-items-center">
                     <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-4.jpg" style="width: 50px; height: 50px;" alt="Zákazník 4">
                     <div class="ps-3">
@@ -70,6 +82,7 @@ require 'partials/header.php';
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
