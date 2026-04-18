@@ -1,12 +1,19 @@
 <?php
+session_start();
+
 $nazovStranky = "Menu | Sushi House Šurany";
 
 require_once 'classes/MenuItem.php';
 
 $menuItem = new MenuItem();
 
-// DELETE logika
+// DELETE logika - len pre prihláseného admina
 if (isset($_GET['delete_id'])) {
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: login.php');
+        exit;
+    }
+
     $menuItem->delete((int)$_GET['delete_id']);
     header("Location: menu.php");
     exit;
@@ -61,27 +68,24 @@ require 'partials/header.php';
                                     <?php echo htmlspecialchars($item['description']); ?>
                                 </small>
 
-                                <!-- 🔥 ACTIONS -->
-                                <div class="mt-1">
+                                <?php if (isset($_SESSION['user_id'])): ?>
+                                    <div class="mt-1">
+                                        <a
+                                            href="edit-menu-item.php?id=<?php echo (int)$item['id']; ?>"
+                                            style="color: #d4a24c; font-size: 12px; text-decoration: none; margin-right: 12px;"
+                                        >
+                                            Upraviť
+                                        </a>
 
-                                    <!-- EDIT -->
-                                    <a
-                                        href="edit-menu-item.php?id=<?php echo (int)$item['id']; ?>"
-                                        style="color: #d4a24c; font-size: 12px; text-decoration: none; margin-right: 12px;"
-                                    >
-                                        Upraviť
-                                    </a>
-
-                                    <!-- DELETE -->
-                                    <a
-                                        href="menu.php?delete_id=<?php echo (int)$item['id']; ?>"
-                                        onclick="return confirm('Naozaj chceš vymazať túto položku?');"
-                                        style="color: red; font-size: 12px; text-decoration: none;"
-                                    >
-                                        Vymazať
-                                    </a>
-
-                                </div>
+                                        <a
+                                            href="menu.php?delete_id=<?php echo (int)$item['id']; ?>"
+                                            onclick="return confirm('Naozaj chceš vymazať túto položku?');"
+                                            style="color: red; font-size: 12px; text-decoration: none;"
+                                        >
+                                            Vymazať
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
 
                             </div>
                         </div>
@@ -89,6 +93,7 @@ require 'partials/header.php';
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="col-12 text-center">
+                    <p>Momentálne nie sú dostupné žiadne položky v menu.</p>
                 </div>
             <?php endif; ?>
         </div>
