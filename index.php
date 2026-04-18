@@ -91,7 +91,7 @@ require 'partials/header.php';
 
             <div class="col-lg-6">
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">O nás</h5>
-                <h1 class="mb-4">Vitajte v <i class="text-primary me-2"></i>Sushi House Šurany</h1>
+                <h1 class="mb-4">Vitajte v<i class="text-primary me-2"></i>Sushi House Šurany</h1>
                 <p class="mb-4">
                     Sushi House Šurany je moderná reštaurácia zameraná na čerstvé sushi,
                     kvalitné ingrediencie a poctivú prípravu každého jedla.
