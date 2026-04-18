@@ -1,4 +1,8 @@
 <?php
+session_start();
+?>
+
+<?php
 if (!isset($nazovStranky)) {
     $nazovStranky = "Sushi House Šurany";
 }
