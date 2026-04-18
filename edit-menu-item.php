@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+// 🔒 OCHRANA – len prihlásený admin
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
+
 require_once 'classes/MenuItem.php';
 
 $nazovStranky = "Upraviť položku menu | Sushi House Šurany";
@@ -42,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($updated) {
             $success = 'Položka bola úspešne upravená.';
             $item = $menuItem->getById($id);
+
             $name = $item['name'];
             $description = $item['description'];
             $price = $item['price'];
@@ -86,7 +95,7 @@ require 'partials/header.php';
                     <div class="col-12">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="name" name="name"
-                                   value="<?php echo htmlspecialchars($name); ?>" placeholder="Názov">
+                                   value="<?php echo htmlspecialchars($name); ?>">
                             <label for="name">Názov jedla</label>
                         </div>
                     </div>
@@ -94,7 +103,7 @@ require 'partials/header.php';
                     <div class="col-12">
                         <div class="form-floating">
                             <textarea class="form-control" id="description" name="description"
-                                      placeholder="Popis" style="height: 120px"><?php echo htmlspecialchars($description); ?></textarea>
+                                      style="height: 120px"><?php echo htmlspecialchars($description); ?></textarea>
                             <label for="description">Popis</label>
                         </div>
                     </div>
@@ -102,7 +111,7 @@ require 'partials/header.php';
                     <div class="col-md-6">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="price" name="price"
-                                   value="<?php echo htmlspecialchars((string)$price); ?>" placeholder="Cena">
+                                   value="<?php echo htmlspecialchars((string)$price); ?>">
                             <label for="price">Cena</label>
                         </div>
                     </div>
@@ -110,7 +119,7 @@ require 'partials/header.php';
                     <div class="col-md-6">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="category" name="category"
-                                   value="<?php echo htmlspecialchars($category); ?>" placeholder="Kategória">
+                                   value="<?php echo htmlspecialchars($category); ?>">
                             <label for="category">Kategória</label>
                         </div>
                     </div>
@@ -118,7 +127,7 @@ require 'partials/header.php';
                     <div class="col-12">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="image" name="image"
-                                   value="<?php echo htmlspecialchars($image); ?>" placeholder="Obrázok">
+                                   value="<?php echo htmlspecialchars($image); ?>">
                             <label for="image">Názov obrázka (napr. menu-1.jpg)</label>
                         </div>
                     </div>
