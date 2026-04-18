@@ -4,15 +4,6 @@ $nazovStranky = "Menu | Sushi House Šurany";
 require_once 'classes/MenuItem.php';
 
 $menuItem = new MenuItem();
-$items = $menuItem->getAll();
-
-require 'partials/header.php';
-?>
-
-<?php
-require_once 'classes/MenuItem.php';
-
-$menuItem = new MenuItem();
 
 // DELETE logika
 if (isset($_GET['delete_id'])) {
@@ -25,6 +16,7 @@ $items = $menuItem->getAll();
 
 require 'partials/header.php';
 ?>
+
 <div class="container-xxl py-5 bg-dark hero-header mb-5">
     <div class="container text-center my-5 pt-5 pb-4">
         <h1 class="display-3 text-white mb-3 animated slideInDown">Menu</h1>
@@ -55,23 +47,48 @@ require 'partials/header.php';
                                 alt="<?php echo htmlspecialchars($item['name']); ?>"
                                 style="width: 80px;"
                             >
+
                             <div class="w-100 d-flex flex-column text-start ps-4">
+
                                 <h5 class="d-flex justify-content-between border-bottom pb-2">
                                     <span><?php echo htmlspecialchars($item['name']); ?></span>
                                     <span class="text-primary">
                                         <?php echo number_format((float)$item['price'], 2, ',', ' '); ?> €
                                     </span>
                                 </h5>
-                                <small class="fst-italic">
+
+                                <small class="fst-italic mb-1">
                                     <?php echo htmlspecialchars($item['description']); ?>
                                 </small>
+
+                                <!-- 🔥 ACTIONS -->
+                                <div class="mt-1">
+
+                                    <!-- EDIT -->
+                                    <a
+                                        href="edit-menu-item.php?id=<?php echo (int)$item['id']; ?>"
+                                        style="color: #d4a24c; font-size: 12px; text-decoration: none; margin-right: 12px;"
+                                    >
+                                        Upraviť
+                                    </a>
+
+                                    <!-- DELETE -->
+                                    <a
+                                        href="menu.php?delete_id=<?php echo (int)$item['id']; ?>"
+                                        onclick="return confirm('Naozaj chceš vymazať túto položku?');"
+                                        style="color: red; font-size: 12px; text-decoration: none;"
+                                    >
+                                        Vymazať
+                                    </a>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="col-12 text-center">
-                    <p>Momentálne nie sú dostupné žiadne položky v menu.</p>
                 </div>
             <?php endif; ?>
         </div>
