@@ -1,5 +1,26 @@
 <?php
+session_start();
+
 $nazovStranky = "Menu | Sushi House Šurany";
+
+require_once 'classes/MenuItem.php';
+
+$menuItem = new MenuItem();
+
+// DELETE logika - len pre prihláseného admina
+if (isset($_GET['delete_id'])) {
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: login.php');
+        exit;
+    }
+
+    $menuItem->delete((int)$_GET['delete_id']);
+    header("Location: menu.php");
+    exit;
+}
+
+$items = $menuItem->getAll();
+
 require 'partials/header.php';
 ?>
 
@@ -23,109 +44,58 @@ require 'partials/header.php';
         </div>
 
         <div class="row g-4">
-            <div class="col-lg-6">
-                <div class="d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt="California Roll" style="width: 80px;">
-                    <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between border-bottom pb-2">
-                            <span>California Roll</span>
-                            <span class="text-primary">8,90 €</span>
-                        </h5>
-                        <small class="fst-italic">Krabia tyčinka, avokádo, uhorka a sezam</small>
-                    </div>
-                </div>
-            </div>
+            <?php if (!empty($items)): ?>
+                <?php foreach ($items as $item): ?>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img
+                                class="flex-shrink-0 img-fluid rounded"
+                                src="img/<?php echo htmlspecialchars($item['image']); ?>"
+                                alt="<?php echo htmlspecialchars($item['name']); ?>"
+                                style="width: 80px;"
+                            >
 
-            <div class="col-lg-6">
-                <div class="d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-2.jpg" alt="Salmon Nigiri" style="width: 80px;">
-                    <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between border-bottom pb-2">
-                            <span>Salmon Nigiri</span>
-                            <span class="text-primary">6,50 €</span>
-                        </h5>
-                        <small class="fst-italic">Ryža, čerstvý losos a jemné wasabi</small>
-                    </div>
-                </div>
-            </div>
+                            <div class="w-100 d-flex flex-column text-start ps-4">
 
-            <div class="col-lg-6">
-                <div class="d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-3.jpg" alt="Tempura Maki" style="width: 80px;">
-                    <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between border-bottom pb-2">
-                            <span>Tempura Maki</span>
-                            <span class="text-primary">9,90 €</span>
-                        </h5>
-                        <small class="fst-italic">Kreveta v tempure, omáčka a sezam</small>
-                    </div>
-                </div>
-            </div>
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span><?php echo htmlspecialchars($item['name']); ?></span>
+                                    <span class="text-primary">
+                                        <?php echo number_format((float)$item['price'], 2, ',', ' '); ?> €
+                                    </span>
+                                </h5>
 
-            <div class="col-lg-6">
-                <div class="d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-4.jpg" alt="Sushi Set Classic" style="width: 80px;">
-                    <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between border-bottom pb-2">
-                            <span>Sushi Set Classic</span>
-                            <span class="text-primary">16,90 €</span>
-                        </h5>
-                        <small class="fst-italic">Výber sushi a maki pre 2 osoby</small>
-                    </div>
-                </div>
-            </div>
+                                <small class="fst-italic mb-1">
+                                    <?php echo htmlspecialchars($item['description']); ?>
+                                </small>
 
-            <div class="col-lg-6">
-                <div class="d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-5.jpg" alt="Avocado Maki" style="width: 80px;">
-                    <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between border-bottom pb-2">
-                            <span>Avocado Maki</span>
-                            <span class="text-primary">5,90 €</span>
-                        </h5>
-                        <small class="fst-italic">Ryža, avokádo a nori riasa</small>
-                    </div>
-                </div>
-            </div>
+                                <?php if (isset($_SESSION['user_id'])): ?>
+                                    <div class="mt-1">
+                                        <a
+                                            href="edit-menu-item.php?id=<?php echo (int)$item['id']; ?>"
+                                            style="color: #d4a24c; font-size: 12px; text-decoration: none; margin-right: 12px;"
+                                        >
+                                            Upraviť
+                                        </a>
 
-            <div class="col-lg-6">
-                <div class="d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-6.jpg" alt="Tuna Roll" style="width: 80px;">
-                    <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between border-bottom pb-2">
-                            <span>Tuna Roll</span>
-                            <span class="text-primary">8,50 €</span>
-                        </h5>
-                        <small class="fst-italic">Tuniak, ryža, uhorka a sezam</small>
-                    </div>
-                </div>
-            </div>
+                                        <a
+                                            href="menu.php?delete_id=<?php echo (int)$item['id']; ?>"
+                                            onclick="return confirm('Naozaj chceš vymazať túto položku?');"
+                                            style="color: red; font-size: 12px; text-decoration: none;"
+                                        >
+                                            Vymazať
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
 
-            <div class="col-lg-6">
-                <div class="d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-7.jpg" alt="Teriyaki Bowl" style="width: 80px;">
-                    <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between border-bottom pb-2">
-                            <span>Teriyaki Bowl</span>
-                            <span class="text-primary">10,90 €</span>
-                        </h5>
-                        <small class="fst-italic">Ryža, kura v teriyaki omáčke a zelenina</small>
+                            </div>
+                        </div>
                     </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="col-12 text-center">
+                    <p>Momentálne nie sú dostupné žiadne položky v menu.</p>
                 </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-8.jpg" alt="Dragon Roll" style="width: 80px;">
-                    <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between border-bottom pb-2">
-                            <span>Dragon Roll</span>
-                            <span class="text-primary">11,90 €</span>
-                        </h5>
-                        <small class="fst-italic">Kreveta, avokádo, jemná omáčka a sezam</small>
-                    </div>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
 
         <div class="text-center mt-5">

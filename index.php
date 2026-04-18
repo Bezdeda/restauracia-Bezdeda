@@ -15,8 +15,10 @@ require 'partials/header.php';
                 <a href="booking.php" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Rezervovať stôl</a>
             </div>
             <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                <img class="img-fluid" src="img/hero.jpg" alt="Sushi House Šurany">
-            </div>
+    <div class="hero-img-wrapper">
+        <img class="img-fluid hero-img" src="img/hero.jpg" alt="Sushi House Šurany">
+    </div>
+</div>
         </div>
     </div>
 </div>
@@ -89,7 +91,7 @@ require 'partials/header.php';
 
             <div class="col-lg-6">
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">O nás</h5>
-                <h1 class="mb-4">Vitajte v <i class="fa fa-fish text-primary me-2"></i>Sushi House Šurany</h1>
+                <h1 class="mb-4">Vitajte v<i class="text-primary me-2"></i>Sushi House Šurany</h1>
                 <p class="mb-4">
                     Sushi House Šurany je moderná reštaurácia zameraná na čerstvé sushi,
                     kvalitné ingrediencie a poctivú prípravu každého jedla.
