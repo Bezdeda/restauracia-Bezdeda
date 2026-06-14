@@ -1,21 +1,19 @@
 <?php
-session_start();
-
-$nazovStranky = "Menu | Sushi House Šurany";
-
+require_once 'classes/Auth.php';
 require_once 'classes/MenuItem.php';
+
+$auth = new Auth();
+
+$nazovStranky = 'Menu | Sushi House Šurany';
 
 $menuItem = new MenuItem();
 
-// DELETE logika - len pre prihláseného admina
 if (isset($_GET['delete_id'])) {
-    if (!isset($_SESSION['user_id'])) {
-        header('Location: login.php');
-        exit;
-    }
+    $auth->requireLogin();
 
     $menuItem->delete((int)$_GET['delete_id']);
-    header("Location: menu.php");
+
+    header('Location: menu.php');
     exit;
 }
 
@@ -68,7 +66,7 @@ require 'partials/header.php';
                                     <?php echo htmlspecialchars($item['description']); ?>
                                 </small>
 
-                                <?php if (isset($_SESSION['user_id'])): ?>
+                               <?php if ($auth->isLoggedIn()): ?>
                                     <div class="mt-1">
                                         <a
                                             href="edit-menu-item.php?id=<?php echo (int)$item['id']; ?>"

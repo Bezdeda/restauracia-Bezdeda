@@ -1,12 +1,11 @@
 <?php
-session_start();
+require_once 'classes/Auth.php';
 
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
-    exit;
-}
+$auth = new Auth();
+$auth->requireLogin();
 
-$nazovStranky = "Administrácia | Sushi House Šurany";
+$nazovStranky = 'Administrácia | Sushi House Šurany';
+
 require 'partials/header.php';
 ?>
 
@@ -19,14 +18,24 @@ require 'partials/header.php';
 <div class="container-xxl py-5">
     <div class="container">
         <div class="bg-white rounded p-5 shadow-sm">
-            <h2 class="mb-4">Vitaj, <?php echo htmlspecialchars($_SESSION['username']); ?></h2>
+            <h2 class="mb-4">
+                Vitaj, <?php echo htmlspecialchars($auth->getUsername()); ?>
+            </h2>
 
             <p>Si prihlásený do administračného rozhrania.</p>
 
             <div class="d-flex gap-3 flex-wrap">
-                <a href="create-menu-item.php" class="btn btn-primary">Pridať položku menu</a>
-                <a href="menu.php" class="btn btn-secondary">Zobraziť menu</a>
-                <a href="logout.php" class="btn btn-danger">Odhlásiť sa</a>
+                <a href="create-menu-item.php" class="btn btn-primary">
+                    Pridať položku menu
+                </a>
+
+                <a href="menu.php" class="btn btn-secondary">
+                    Zobraziť menu
+                </a>
+
+                <a href="logout.php" class="btn btn-danger">
+                    Odhlásiť sa
+                </a>
             </div>
         </div>
     </div>

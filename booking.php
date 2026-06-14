@@ -2,6 +2,7 @@
 $nazovStranky = "Rezervácia | Sushi House Šurany";
 
 require_once 'classes/Reservation.php';
+require_once 'classes/ReservationForm.php';
 
 $meno = '';
 $email = '';
@@ -12,30 +13,29 @@ $potvrdzujucaSprava = '';
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $meno = trim($_POST['meno'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $datumCas = trim($_POST['datum_cas'] ?? '');
-    $pocetOsob = trim($_POST['pocet_osob'] ?? '');
-    $sprava = trim($_POST['sprava'] ?? '');
+    $form = new ReservationForm($_POST);
 
-    if ($meno === '' || $email === '' || $datumCas === '' || $pocetOsob === '') {
-        $error = "Prosím vyplňte všetky povinné polia.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Zadajte platný email.";
-    } elseif (!is_numeric($pocetOsob)) {
-        $error = "Počet osôb musí byť číslo.";
+    $meno = $form->getName();
+    $email = $form->getEmail();
+    $datumCas = $form->getReservationDatetime();
+    $pocetOsob = $form->getGuests();
+    $sprava = $form->getNote();
+
+    if (!$form->isValid()) {
+        $error = $form->getError();
     } else {
         $reservation = new Reservation();
+
         $created = $reservation->create(
-            $meno,
-            $email,
-            $datumCas,
-            (int)$pocetOsob,
-            $sprava
+            $form->getName(),
+            $form->getEmail(),
+            $form->getReservationDatetime(),
+            $form->getGuestsAsInt(),
+            $form->getNote()
         );
 
         if ($created) {
-            $potvrdzujucaSprava = "Vaša rezervácia bola úspešne odoslaná.";
+            $potvrdzujucaSprava = 'Vaša rezervácia bola úspešne odoslaná.';
 
             $meno = '';
             $email = '';
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $pocetOsob = '';
             $sprava = '';
         } else {
-            $error = "Pri ukladaní rezervácie nastala chyba.";
+            $error = 'Pri ukladaní rezervácie nastala chyba.';
         }
     }
 }

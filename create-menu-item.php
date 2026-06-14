@@ -1,15 +1,12 @@
 <?php
-session_start();
-
-// 🔒 OCHRANA – len prihlásený admin
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
-    exit;
-}
-
+require_once 'classes/Auth.php';
 require_once 'classes/MenuItem.php';
+require_once 'classes/MenuItemForm.php';
 
-$nazovStranky = "Pridať položku menu | Sushi House Šurany";
+$auth = new Auth();
+$auth->requireLogin();
+
+$nazovStranky = 'Pridať položku menu | Sushi House Šurany';
 
 $name = '';
 $description = '';
@@ -20,22 +17,30 @@ $success = '';
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim($_POST['name'] ?? '');
-    $description = trim($_POST['description'] ?? '');
-    $price = trim($_POST['price'] ?? '');
-    $image = trim($_POST['image'] ?? '');
-    $category = trim($_POST['category'] ?? '');
+    $form = new MenuItemForm($_POST);
 
-    if ($name === '' || $description === '' || $price === '' || $image === '' || $category === '') {
-        $error = 'Prosím vyplň všetky polia.';
-    } elseif (!is_numeric($price)) {
-        $error = 'Cena musí byť číslo.';
+    $name = $form->getName();
+    $description = $form->getDescription();
+    $price = $form->getPrice();
+    $image = $form->getImage();
+    $category = $form->getCategory();
+
+    if (!$form->isValid()) {
+        $error = $form->getError();
     } else {
         $menuItem = new MenuItem();
-        $created = $menuItem->create($name, $description, (float)$price, $image, $category);
+
+        $created = $menuItem->create(
+            $form->getName(),
+            $form->getDescription(),
+            $form->getPriceAsFloat(),
+            $form->getImage(),
+            $form->getCategory()
+        );
 
         if ($created) {
             $success = 'Položka bola úspešne pridaná do menu.';
+
             $name = '';
             $description = '';
             $price = '';

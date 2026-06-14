@@ -1,9 +1,8 @@
 <?php
-session_start();
+require_once 'classes/Auth.php';
 
-require_once 'classes/User.php';
-
-$nazovStranky = "Prihlásenie | Sushi House Šurany";
+$auth = new Auth();
+$nazovStranky = 'Prihlásenie | Sushi House Šurany';
 
 $username = '';
 $error = '';
@@ -14,19 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($username === '' || $password === '') {
         $error = 'Prosím vyplň používateľské meno aj heslo.';
+    } elseif ($auth->login($username, $password)) {
+        header('Location: admin.php');
+        exit;
     } else {
-        $userModel = new User();
-        $user = $userModel->findByUsername($username);
-
-        if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-
-            header('Location: admin.php');
-            exit;
-        } else {
-            $error = 'Nesprávne prihlasovacie údaje.';
-        }
+        $error = 'Nesprávne prihlasovacie údaje.';
     }
 }
 

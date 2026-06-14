@@ -1,7 +1,8 @@
 <?php
-session_start();
-session_unset();
-session_destroy();
+require_once 'classes/Auth.php';
+
+$auth = new Auth();
+$auth->logout();
 
 header('Location: login.php');
 exit;
