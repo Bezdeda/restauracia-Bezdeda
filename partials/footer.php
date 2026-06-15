@@ -1,4 +1,4 @@
-<!-- Footer -->
+
 <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row g-5">
@@ -31,7 +31,7 @@
                 &copy; <?php echo date("Y"); ?> Sushi House Šurany | Všetky práva vyhradené
             </p>
 
-            <!-- 🔒 ADMIN LINK -->
+
             <small>
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <a href="admin.php" style="color: #d4a24c; text-decoration: none; margin-right: 10px;">
